@@ -1,0 +1,18 @@
+
+all: clean1 clean2
+
+clean1:
+	sed -e "s/^I/    /" pancreas_refseq_rpkms_counts_3514sc.txt \
+		> pancreas_refseq_rpkms_counts_3514sc_clean.txt
+
+clean2:
+	sed -e s'/^[ \t]*//' pancreas_refseq_rpkms_counts_3514sc_clean.txt \
+		> pancreas_refseq_rpkms_counts_3514sc_clean_v2.txt
+
+left:
+	cut -f -3516 pancreas_refseq_rpkms_counts_3514sc_clean.txt \
+		> pancreas_refseq_rpkms_counts_3514sc_clean_left.txt 
+
+right:
+	cut -f 3517- pancreas_refseq_rpkms_counts_3514sc_clean.txt \
+		> pancreas_refseq_rpkms_counts_3514sc_clean_right.txt 
